@@ -1,5 +1,5 @@
 const api_url = 'https://danepubliczne.imgw.pl/api/data/synop';
-async function getWeather()
+document.getElementById("btn").addEventListener("click", async function() {
 {
     var miasto = document.getElementById("pole").value;
     const response = await fetch(api_url);
@@ -15,5 +15,4 @@ async function getWeather()
         }
     }
 }
-
-getWeather();
+  });
