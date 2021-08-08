@@ -39,5 +39,10 @@ document.getElementById("btn").addEventListener("click", async function() {
         div.appendChild(text);
         document.getElementById("pogoda").appendChild(div);
     }
+    var button = document.createElement('input');
+    button.setAttribute('onclick', 'window.location=\'index.html\'');
+    button.setAttribute('type', 'button');
+    button.setAttribute('value', 'Wyszukaj ponownie');
+    document.getElementById("pogoda").appendChild(button);
 }
-  });
+});
