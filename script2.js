@@ -4,35 +4,39 @@ document.getElementById("btn").addEventListener("click", async function() {
     var miasto = document.getElementById("pole").value;
     const response = await fetch(api_url);
     const data = await response.json();
-    //console.log(data);
+    var station_found = false;
     for(var i=0;i<data.length-1;i++)
     {
         if(data[i].stacja==miasto)
         {
-            var div = document.createElement('div');
-            div.className = 'info';
-            var text = document.createTextNode(data[i].temperatura + "°C");
-            div.appendChild(text);
-            document.getElementById("pogoda").appendChild(div);
-            var div2 = document.createElement('div');
-            div2.className = 'info';
-            var text = document.createTextNode(data[i].predkosc_wiatru + " km/h");
-            div2.appendChild(text);
-            document.getElementById("pogoda").appendChild(div2);
-            var div3 = document.createElement('div');
-            div3.className = 'info';
-            var text = document.createTextNode(data[i].cisnienie + " hPa");
-            div3.appendChild(text);
-            document.getElementById("pogoda").appendChild(div3);
+            station_found = true;
         }
-        else
-        {
-            var div = document.createElement('div');
-            div.className = 'info';
-            var text = document.createTextNode("Nie znaleziono stacji! :(");
-            div.appendChild(text);
-            document.getElementById("pogoda").appendChild(div);
-        }
+    }
+    if(station_found)
+    {
+        var div = document.createElement('div');
+        div.className = 'info';
+        var text = document.createTextNode(data[i].temperatura + "°C");
+        div.appendChild(text);
+        document.getElementById("pogoda").appendChild(div);
+        var div2 = document.createElement('div');
+        div2.className = 'info';
+        var text = document.createTextNode(data[i].predkosc_wiatru + " km/h");
+        div2.appendChild(text);
+        document.getElementById("pogoda").appendChild(div2);
+        var div3 = document.createElement('div');
+        div3.className = 'info';
+        var text = document.createTextNode(data[i].cisnienie + " hPa");
+        div3.appendChild(text);
+        document.getElementById("pogoda").appendChild(div3);
+    }
+    else
+    {
+        var div = document.createElement('div');
+        div.className = 'info';
+        var text = document.createTextNode("Nie znaleziono stacji! :(");
+        div.appendChild(text);
+        document.getElementById("pogoda").appendChild(div);
     }
 }
   });
