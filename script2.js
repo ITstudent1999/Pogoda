@@ -12,6 +12,7 @@ document.getElementById("btn").addEventListener("click", async function() {
             station_found = true;
         }
     }
+    document.getElementById("form").remove();
     if(station_found)
     {
         var div = document.createElement('div');
