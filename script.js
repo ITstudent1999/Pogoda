@@ -19,17 +19,17 @@ document.getElementById("btn").addEventListener("click", async function() {
             div.className = 'info';
             var text = document.createTextNode(data[i].temperatura + "°C");
             div.appendChild(text);
-            document.getElementById("pogoda").appendChild(div);
+            document.getElementById("content").appendChild(div);
             var div2 = document.createElement('div');
             div2.className = 'info';
             var text = document.createTextNode(data[i].predkosc_wiatru + " km/h");
             div2.appendChild(text);
-            document.getElementById("pogoda").appendChild(div2);
+            document.getElementById("content").appendChild(div2);
             var div3 = document.createElement('div');
             div3.className = 'info';
             var text = document.createTextNode(data[i].cisnienie + " hPa");
             div3.appendChild(text);
-            document.getElementById("pogoda").appendChild(div3);
+            document.getElementById("content").appendChild(div3);
         }
         else
         {
@@ -37,12 +37,12 @@ document.getElementById("btn").addEventListener("click", async function() {
             div.className = 'info';
             var text = document.createTextNode("Nie znaleziono stacji! :(");
             div.appendChild(text);
-            document.getElementById("pogoda").appendChild(div);
+            document.getElementById("content").appendChild(div);
         }
         var button = document.createElement('input');
         button.setAttribute('onclick', 'window.location=\'index.html\'');
         button.setAttribute('type', 'button');
         button.setAttribute('value', 'Wyszukaj ponownie');
-        document.getElementById("pogoda").appendChild(button);
+        document.getElementById("content").appendChild(button);
     }
     });
