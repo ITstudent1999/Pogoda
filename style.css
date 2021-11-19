@@ -8,3 +8,9 @@ body
     background-color: #e7feff;
     text-align: center;  
 }
+
+.info
+{
+    background-color: red;
+    float: left;
+}
