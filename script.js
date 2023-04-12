@@ -8,8 +8,7 @@ document.getElementById("btn").addEventListener("click", async function () {
     for (var i = 0; i < data.length - 1; i++) {
         if (data[i].stacja.toLowerCase() === miasto.toLowerCase()) {
             station_found = true;
-            var info_data = [
-                {
+            var info_data = [{
                     className: 'info',
                     html: '<i class="fa-solid fa-sun-plant-wilt" style="font-size: 5em; !important"></i><span class="name">Stacja</span><span class="value">' + data[i].stacja + '</span>'
                 },
@@ -19,11 +18,11 @@ document.getElementById("btn").addEventListener("click", async function () {
                 },
                 {
                     className: 'info',
-                    html: '<i class="fa-solid fa-wind" style="font-size: 5em; !important"></i><span class="name">Prędkość wiatru</span><span class="value">'+data[i].predkosc_wiatru + " km/h</span>"
+                    html: '<i class="fa-solid fa-wind" style="font-size: 5em; !important"></i><span class="name">Prędkość wiatru</span><span class="value">' + data[i].predkosc_wiatru + " km/h</span>"
                 },
                 {
                     className: 'info',
-                    html: '<i class="fa-solid fa-feather-pointed" style="font-size: 5em; !important"></i><span class="name">Ciśnienie</span><span class="value">'+data[i].cisnienie + " hPa</span>"
+                    html: '<i class="fa-solid fa-feather-pointed" style="font-size: 5em; !important"></i><span class="name">Ciśnienie</span><span class="value">' + data[i].cisnienie + " hPa</span>"
                 }
             ];
             for (var j = 0; j < info_data.length; j++) {
@@ -40,6 +39,18 @@ document.getElementById("btn").addEventListener("click", async function () {
         var div = document.createElement('div');
         div.className = 'info';
         var text = document.createTextNode("Nie znaleziono stacji! :(");
+        var styles = [{
+            height: "50px"
+        }, {
+            backgroundColor: "#ff5b5b"
+        }, {
+            fontSize: "1.2em"
+        }]
+        for (var style of styles) {
+            for (var key in style) {
+                div.style[key] = style[key];
+            }
+        }
         div.appendChild(text);
         document.getElementById("weather").appendChild(div);
     }
